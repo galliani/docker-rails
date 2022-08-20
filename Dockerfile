@@ -1,5 +1,5 @@
-FROM ubuntu:16.04
-LABEL maintainer="Jackson Pires"
+FROM ubuntu:20.04
+LABEL maintainer="Galih Muhammad"
 
 RUN apt-get update
 RUN apt-get install -y openssh-server vim curl git sudo
@@ -28,10 +28,10 @@ USER app
 
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 RUN /bin/bash -l -c "curl -L get.rvm.io | bash -s stable"
-RUN /bin/bash -l -c "rvm install 2.4"
+RUN /bin/bash -l -c "rvm install 3.1.2"
 RUN /bin/bash -l -c "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
 RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
-RUN /bin/bash -l -c "gem install rails -v 5.1.4"
+RUN /bin/bash -l -c "gem install rails -v 7.0.3"
 
 USER root
 
